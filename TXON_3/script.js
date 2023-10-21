@@ -1,39 +1,26 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const taskInput = document.getElementById("task-input");
-    const addTaskButton = document.getElementById("add-task");
-    const taskList = document.getElementById("task-list");
+const taskInput = document.getElementById("taskInput");
+const addTaskButton = document.getElementById("addTask");
+const taskList = document.getElementById("taskList");
 
-    addTaskButton.addEventListener("click", function () {
-        const taskText = taskInput.value.trim();
-        if (taskText !== "") {
-            addTask(taskText);
-            taskInput.value = "";
-        }
-    });
+addTaskButton.addEventListener("click", addTask);
 
-    function addTask(text) {
-        const taskItem = document.createElement("li");
-        taskItem.innerHTML = `
-            <span>${text}</span>
+function addTask() {
+    const taskText = taskInput.value;
+    if (taskText) {
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <span>${taskText}</span>
             <button class="delete">Delete</button>
-            <button class="complete">Complete</button>
         `;
-        taskList.appendChild(taskItem);
+        taskList.appendChild(li);
 
-        taskItem.querySelector(".complete").addEventListener("click", function () {
-            taskItem.classList.toggle("completed");
-        });
+        // Clear the input field
+        taskInput.value = "";
 
-        taskItem.querySelector(".delete").addEventListener("click", function () {
-            taskList.removeChild(taskItem);
+        // Add delete functionality
+        const deleteButton = li.querySelector(".delete");
+        deleteButton.addEventListener("click", () => {
+            taskList.removeChild(li);
         });
     }
-
-    // Add filtering logic (you can implement this part)
-    const allTasksButton = document.getElementById("all-tasks");
-    const completedTasksButton = document.getElementById("completed-tasks");
-    const uncompletedTasksButton = document.getElementById("uncompleted-tasks");
-
-    // Implement filter logic here
-});
-
+}
