@@ -1,1 +1,50 @@
 
+body, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #cbaacb;
+}
+
+/* Header styles */
+header {
+    background-color: #abdee6;
+    color: #2e3332;
+    text-align: center;
+    padding: 20px 0;
+   
+}
+
+#logo {
+    font-size: 30px;
+}
+
+nav ul {
+    margin-top: 20px;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Section styles */
+section {
+    background-color: #eceae4;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+
+
